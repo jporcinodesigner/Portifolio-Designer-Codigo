@@ -9,13 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EV46NH27RJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EV46NH27RJ');
 </script>
 
@@ -25,215 +23,51 @@
 html { scroll-behavior: smooth; }
 body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; padding-top: 80px; }
 img { display: block; max-width: 100%; }
-section { padding: 100px 20px; }
+section { padding: 60px 20px; } /* Ajuste Mobile First */
 .container { max-width: 1100px; margin: 0 auto; }
 
 /* ── HEADER ── */
 header { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
 .nav-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-size: 1.15rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
-nav ul { display: flex; list-style: none; gap: 32px; }
-nav a { font-size: 0.85rem; color: #a3a3a3; text-transform: uppercase; text-decoration: none; }
+nav ul { display: flex; list-style: none; gap: 15px; } /* Gap reduzido para mobile */
+nav a { font-size: 0.8rem; color: #a3a3a3; text-transform: uppercase; text-decoration: none; }
 nav a:hover { color: #fff; }
 
 /* ── HOME ── */
-.hero { min-height: calc(100vh - 80px); display: flex; justify-content: center; align-items: center; }
+.hero { min-height: calc(50vh - 80px); display: flex; justify-content: center; align-items: center; }
 
 /* ── SOBRE ── */
 .section-tag { font-size: 0.75rem; color: #a3a3a3; text-transform: uppercase; margin-bottom: 12px; display: block; }
-.section-title { font-size: 2.5rem; margin-bottom: 48px; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-.about-text p { font-size: 1.05rem; line-height: 1.6; color: #e5e5e5; margin-bottom: 16px; }
+.section-title { font-size: 2rem; margin-bottom: 30px; }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 32px; } /* Mobile First: 1 coluna */
+.about-text p { font-size: 1rem; line-height: 1.6; color: #e5e5e5; margin-bottom: 16px; }
 
 /* ── SOLUÇÕES ── */
-.solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-.sol-card { background: #0a0a0a; padding: 40px; border-radius: 16px; border: 1px solid #1a1a1a; text-align: center; transition: transform 0.3s, border-color 0.3s; }
-.sol-card:hover { transform: translateY(-5px); border-color: #333; }
-.sol-card i { font-size: 2.5rem; color: #fff; margin-bottom: 20px; display: inline-block; }
-.sol-card h3 { font-size: 1.25rem; font-weight: 600; color: #fff; }
+.solutions-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.sol-card { background: #0a0a0a; padding: 30px; border-radius: 16px; border: 1px solid #1a1a1a; text-align: center; }
 
-/* ── CARROSSEL DE CASES UNIFICADO ── */
-.carousel-container { position: relative; width: 100%; max-width: 1000px; margin: 0 auto; aspect-ratio: 2 / 1; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); background-color: #000; }
+/* ── CARROSSEL ── */
+.carousel-container { position: relative; width: 100%; margin: 0 auto; min-height: 250px; overflow: hidden; border-radius: 12px; }
 .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
-.slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.slide img { width: 100%; height: 100%; object-fit: contain; background-color: #000; }
-
-/* Botões de Navegação */
-.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.6); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s, transform 0.2s; z-index: 10; user-select: none; }
-.nav-btn:hover { background-color: rgba(255, 255, 255, 0.2); transform: translateY(-50%) scale(1.05); }
-.nav-btn:active { transform: translateY(-50%) scale(0.95); }
-.prev { left: 15px; }
-.next { right: 15px; }
-
-/* Indicadores (Pontinhos) */
-.indicators { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-.dot { width: 12px; height: 12px; border-radius: 50%; background-color: #444; cursor: pointer; transition: background-color 0.3s, transform 0.3s; }
-.dot.active { background-color: #fff; transform: scale(1.2); }
+.slide { min-width: 100%; display: flex; align-items: center; justify-content: center; }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; width: 40px; height: 40px; cursor: pointer; z-index: 10; }
+.prev { left: 10px; } .next { right: 10px; }
 
 /* ── CONTATO ── */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-input, textarea { width: 100%; padding: 16px; margin-bottom: 20px; background: #0a0a0a; border: 1px solid #1a1a1a; color: #fff; border-radius: 8px; font-family: inherit; }
-.submit-btn { background: #fff; color: #000; padding: 16px; border: none; cursor: pointer; width: 100%; font-weight: bold; border-radius: 8px; transition: background 0.3s; }
-.submit-btn:hover { background: #e3e3e3; }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+input, textarea { width: 100%; padding: 16px; margin-bottom: 15px; background: #0a0a0a; border: 1px solid #1a1a1a; color: #fff; border-radius: 8px; }
+.submit-btn { background: #fff; color: #000; padding: 16px; border: none; width: 100%; border-radius: 8px; font-weight: bold; }
+
+/* ── RESPONSIVIDADE (TABLET/DESKTOP) ── */
+@media (min-width: 768px) {
+    section { padding: 100px 20px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
+    .solutions-grid { grid-template-columns: repeat(3, 1fr); }
+    .carousel-container { aspect-ratio: 2 / 1; min-height: auto; }
+}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="nav-container">
-    <div class="logo">JEH PORCINO</div>
-    <nav><ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">Sobre</a></li>
-      <li><a href="#solutions">Soluções</a></li>
-      <li><a href="#cases">Cases</a></li>
-      <li><a href="#contact">Contato</a></li>
-    </ul></nav>
-  </div>
-</header>
-
-<section id="home" class="hero">
-  <img src="imagens/logo-oficial-jeh.webp" alt="Logo">
-</section>
-
-<section id="about">
-  <div class="container">
-    <span class="section-tag">01 / HISTÓRIA</span>
-    <h2 class="section-title">Sobre Mim</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>Sou Designer Gráfica e Programadora Front-End, com foco na criação de sites estáticos e soluções visuais ágeis. Minha jornada profissional começou no Turismo — minha grande passion por anos —, mas a vida me desafiou a encontrar novos caminhos quando passei por uma perda visual.</p>
-        <p>Foi nessa reinvenção que descobri meu lugar no design e na tecnologia. Hoje, como freelancer, uno o olhar estético do design à precisão do código, transformando ideias em experiências digitais completas, acessíveis e de alta performance. Prova de que, com resiliência e criatividade, não existem limites para o que podemos construir.</p>
-      </div>
-      <img src="imagens/quem-sou-eu.webp" alt="Foto">
-    </div>
-  </div>
-</section>
-
-<section id="solutions">
-  <div class="container">
-    <h2 class="section-title">Soluções Visuais & Web</h2>
-    <div class="solutions-grid">
-      <div class="sol-card">
-        <i class="fa-solid fa-palette"></i>
-        <h3>Identidade Visual</h3>
-      </div>
-      <div class="sol-card">
-        <i class="fa-solid fa-bullhorn"></i>
-        <h3>Arte para Redes</h3>
-      </div>
-      <div class="sol-card">
-        <i class="fa-solid fa-code"></i>
-        <h3>Sites & Landing Pages</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cases">
-  <div class="container">
-    <h2 class="section-title">Cases de Sucesso</h2>
-    
-    <div class="carousel-container">
-        <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
-
-        <div class="carousel-track" id="track">
-            <div class="slide">
-                <img src="imagens/sites-estaticos-landin-pages.gif" alt="Case 1">
-            </div>
-            <div class="slide">
-                <img src="imagens/convite-estampa-banner.webp" alt="Case 2">
-            </div>
-            <div class="slide">
-                <img src="imagens/convite-estampa-banner (2).webp" alt="Case 3">
-            </div>
-            <div class="slide">
-                <img src="imagens/corporativo-edicao4k.webp" alt="Case 4">
-            </div>
-        </div>
-    </div>
-
-    <div class="indicators">
-        <div class="dot active" onclick="currentSlide(0)"></div>
-        <div class="dot" onclick="currentSlide(1)"></div>
-        <div class="dot" onclick="currentSlide(2)"></div>
-        <div class="dot" onclick="currentSlide(3)"></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Contato</h2>
-    <div class="contact-grid">
-      <p>Preencha o formulário para iniciarmos um projeto.</p>
-      <form id="contactForm">
-        <input type="text" name="Name" placeholder="Seu Nome" required>
-        <input type="email" name="Email" placeholder="Seu E-mail" required>
-        <textarea name="Message" placeholder="Como posso te ajudar?" required></textarea>
-        <button type="submit" class="submit-btn">Enviar</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<script>
-// Lógica de Controle do Carrossel
-const track = document.getElementById('track');
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-let currentIndex = 0;
-const totalSlides = slides.length;
-let autoPlayTimer;
-
-function updateCarousel() {
-  track.style.transform = `translateX(-${currentIndex * 100}%)`;
-  dots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentIndex);
-  });
-}
-
-function moveSlide(direction) {
-  currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-  updateCarousel();
-  resetAutoPlay();
-}
-
-function currentSlide(index) {
-  currentIndex = index;
-  updateCarousel();
-  resetAutoPlay();
-}
-
-function startAutoPlay() {
-  autoPlayTimer = setInterval(() => {
-    moveSlide(1);
-  }, 4000);
-}
-
-function resetAutoPlay() {
-  clearInterval(autoPlayTimer);
-  startAutoPlay();
-}
-
-startAutoPlay();
-
-const container = document.querySelector('.carousel-container');
-container.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
-container.addEventListener('mouseleave', startAutoPlay);
-
-// Formulário Integrado ao Sheetmonkey
-document.getElementById('contactForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const res = await fetch('https://api.sheetmonkey.io/form/irCsu4oiUMbdQpT6nKSRUW', {
-    method: 'POST', 
-    body: new FormData(e.target)
-  });
-  if (res.ok) alert('Mensagem enviada!');
-});
-</script>
-
-</body>
+    </body>
 </html>
